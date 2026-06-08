@@ -1,6 +1,304 @@
+/* Define Arial for a slick website and and add gray background to emphasize slickness*/
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
+}
+
+/* Ensure header is biggest, most noticable part of the screen and centered  */
+header {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Main content area */
+main {
+    padding: 40px 20px;
+}
+
+/* Organize each card in Flexbox grid setup */
+.playlist-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Make card seem noticeable with bordering/hovering effect, making site look more responsive */
+.card {
+    background-color: white;
+    border: 2px solid #999;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 0 0 calc(25% - 15px);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card image also is place sharply into the card container to fit the aligned grid view*/
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* X pattern for placeholder image */
+.card-image::before,
+.card-image::after {
+    content: '';
+    position: absolute;
+    background-color: #ccc;
+    width: 1px;
+    height: 141%;
+    top: 50%;
+    left: 50%;
+}
+
+.card-image::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.card-image::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Playlist title */
+.playlist-title {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Further defining song features based on flexbox to make text look clean */
+.creator-name {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Likes section */
+.likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.heart {
+    color: #666;
+    font-size: 16px;
+}
+
+.like-count {
+    color: #666;
+}
+
+/* Centered footer that has grey background matching with top with dark text to indicate the end of the page + small information about company*/
+footer {
+    background-color: #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    border-top: 2px solid #ccc;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Modal overlay - covers entire screen and again is centered to become more noticable for the user and makes the whole website seem more dynamic */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal header section */
+.modal-header {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Modal playlist cover image */
+.modal-image {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+/* X pattern for modal image placeholder */
+.modal-image::before,
+.modal-image::after {
+    content: '';
+    position: absolute;
+    background-color: #ccc;
+    width: 1px;
+    height: 141%;
+    top: 50%;
+    left: 50%;
+}
+
+.modal-image::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-image::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Modal info section */
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-playlist-title {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.modal-creator-name {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Song list container - showing each song in a down grid view including key features like 
+song title, author, and album name */
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Individual song item */
+.song-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Song item hover effect */
+.song-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Song thumbnail image */
+.song-image {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+/* X pattern for song image placeholder */
+.song-image::before,
+.song-image::after {
+    content: '';
+    position: absolute;
+    background-color: #ccc;
+    width: 1px;
+    height: 141%;
+    top: 50%;
+    left: 50%;
+}
+
+.song-image::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.song-image::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Song details section */
+.song-details {
+    flex: 1;
+}
+
+.song-title {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+.artist-name {
+    margin: 0 0 2px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.album-name {
+    margin: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Song duration */
+.song-duration {
+    font-size: 12px;
+    color: #666;
+    margin-left: auto;
 }
