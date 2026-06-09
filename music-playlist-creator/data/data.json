@@ -1,0 +1,234 @@
+[
+  {
+    "playlistName": "Summer Vibes",
+    "coverImage": "assets/img/Summer.jpg",
+    "author": "DJ Sunny",
+    "likeCount": 42,
+    "listOfSongs": [
+      {
+        "title": "Blinding Lights",
+        "artist": "The Weeknd",
+        "album": "After Hours",
+        "duration": "3:22",
+        "image": "assets/img/Blinding Lights.jpeg"
+      },
+      {
+        "title": "Levitating",
+        "artist": "Dua Lipa",
+        "album": "Future Nostalgia",
+        "duration": "3:23",
+        "image": "assets/img/Levitating.jpeg"
+      },
+      {
+        "title": "Sunflower",
+        "artist": "Post Malone, Swae Lee",
+        "album": "Spider-Man: Into the Spider-Verse",
+        "duration": "2:38",
+        "image": "assets/img/Sunflower.jpeg"
+      }
+    ]
+  },
+  {
+    "playlistName": "Chill Nights",
+    "coverImage": "assets/img/Chill Nights.jpg",
+    "author": "Midnight Mike",
+    "likeCount": 28,
+    "listOfSongs": [
+      {
+        "title": "The Night We Met",
+        "artist": "Lord Huron",
+        "album": "Strange Trails",
+        "duration": "3:28",
+        "image": "assets/img/The Night We Met.jpg"
+      },
+      {
+        "title": "Electric Feel",
+        "artist": "MGMT",
+        "album": "Oracular Spectacular",
+        "duration": "3:49",
+        "image": "assets/img/Electric Feel.jpg"
+      },
+      {
+        "title": "Midnight City",
+        "artist": "M83",
+        "album": "Hurry Up, We're Dreaming",
+        "duration": "4:04",
+        "image": "assets/img/playlist.png"
+      }
+    ]
+  },
+  {
+    "playlistName": "Workout Energy",
+    "coverImage": "assets/img/Workout Energy.jpeg",
+    "author": "Fitness Frank",
+    "likeCount": 67,
+    "listOfSongs": [
+      {
+        "title": "Stronger",
+        "artist": "Kanye West",
+        "album": "Graduation",
+        "duration": "5:12",
+        "image": "assets/img/Stronger.jpg"
+      },
+      {
+        "title": "Eye of the Tiger",
+        "artist": "Survivor",
+        "album": "Eye of the Tiger",
+        "duration": "4:05",
+        "image": "assets/img/Eye of the Tiger.jpeg"
+      },
+      {
+        "title": "Till I Collapse",
+        "artist": "Eminem",
+        "album": "The Eminem Show",
+        "duration": "4:57",
+        "image": "assets/img/Till I Collapse.jpg"
+      }
+    ]
+  },
+  {
+    "playlistName": "Study Focus",
+    "coverImage": "assets/img/Study Focus.jpg",
+    "author": "Library Lucy",
+    "likeCount": 15,
+    "listOfSongs": [
+      {
+        "title": "Weightless",
+        "artist": "Marconi Union",
+        "album": "Weightless",
+        "duration": "8:09",
+        "image": "assets/img/Weightless.jpg"
+      },
+      {
+        "title": "Clair de Lune",
+        "artist": "Claude Debussy",
+        "album": "Suite Bergamasque",
+        "duration": "5:00",
+        "image": "assets/img/Clair de Lune.jpeg"
+      },
+      {
+        "title": "Gymnopédie No. 1",
+        "artist": "Erik Satie",
+        "album": "Trois Gymnopédies",
+        "duration": "3:30",
+        "image": "assets/img/Gymnopedie.jpg"
+      }
+    ]
+  },
+  {
+    "playlistName": "Road Trip Hits",
+    "coverImage": "assets/img/Road Trip.jpg",
+    "author": "Highway Harry",
+    "likeCount": 51,
+    "listOfSongs": [
+      {
+        "title": "Life is a Highway",
+        "artist": "Tom Cochrane",
+        "album": "Mad Mad World",
+        "duration": "4:32",
+        "image": "assets/img/Life Is A Highway.jpg"
+      },
+      {
+        "title": "Take Me Home, Country Roads",
+        "artist": "John Denver",
+        "album": "Poems, Prayers & Promises",
+        "duration": "3:12",
+        "image": "assets/img/Take Me Home.jpeg"
+      },
+      {
+        "title": "Born to Run",
+        "artist": "Bruce Springsteen",
+        "album": "Born to Run",
+        "duration": "4:30",
+        "image": "assets/img/Born to Run.jpg"
+      }
+    ]
+  },
+  {
+    "playlistName": "Jazz Classics",
+    "coverImage": "assets/img/Jazz Classics.jpeg",
+    "author": "Smooth Sarah",
+    "likeCount": 33,
+    "listOfSongs": [
+      {
+        "title": "Take Five",
+        "artist": "Dave Brubeck Quartet",
+        "album": "Time Out",
+        "duration": "5:24",
+        "image": "assets/img/Take Five.jpeg"
+      },
+      {
+        "title": "So What",
+        "artist": "Miles Davis",
+        "album": "Kind of Blue",
+        "duration": "9:22",
+        "image": "assets/img/So What.jpg"
+      },
+      {
+        "title": "Round Midnight",
+        "artist": "Thelonious Monk",
+        "album": "Genius of Modern Music",
+        "duration": "3:11",
+        "image": "assets/img/Round Midnight.jpeg"
+      }
+    ]
+  },
+  {
+    "playlistName": "Morning Motivation",
+    "coverImage": "assets/img/Morning Motivation.jpeg",
+    "author": "Early Bird Eddie",
+    "likeCount": 22,
+    "listOfSongs": [
+      {
+        "title": "Good Morning",
+        "artist": "Kanye West",
+        "album": "Graduation",
+        "duration": "3:15",
+        "image": "assets/img/Good Morning.png"
+      },
+      {
+        "title": "Here Comes the Sun",
+        "artist": "The Beatles",
+        "album": "Abbey Road",
+        "duration": "3:05",
+        "image": "assets/img/Here Comes The Sun.jpg"
+      },
+      {
+        "title": "Beautiful Day",
+        "artist": "U2",
+        "album": "All That You Can't Leave Behind",
+        "duration": "4:08",
+        "image": "assets/img/Beautiful Day.jpg"
+      }
+    ]
+  },
+  {
+    "playlistName": "Party Mix",
+    "coverImage": "assets/img/Party Mix.jpg",
+    "author": "DJ Electro",
+    "likeCount": 89,
+    "listOfSongs": [
+      {
+        "title": "Uptown Funk",
+        "artist": "Mark Ronson ft. Bruno Mars",
+        "album": "Uptown Special",
+        "duration": "4:30",
+        "image": "assets/img/Uptown Funk.jpg"
+      },
+      {
+        "title": "Don't Stop Me Now",
+        "artist": "Queen",
+        "album": "Jazz",
+        "duration": "3:29",
+        "image": "assets/img/Don't Stop Me Now.jpg"
+      },
+      {
+        "title": "Shut Up and Dance",
+        "artist": "Walk the Moon",
+        "album": "Talking Is Hard",
+        "duration": "3:19",
+        "image": "assets/img/Walk The Moon.png"
+      }
+    ]
+  }
+]

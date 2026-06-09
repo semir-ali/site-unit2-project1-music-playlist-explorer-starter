@@ -1,10 +1,19 @@
 ## Music Playlist Explorer — Planning Spec
 
 ### Data Shape
-[Leave blank — fill in before Milestone 3]
+- Song object: 
+  - title (string) - Title of the song
+  - author (string) - Who made the song
+  - duration (string) - How long the song is
+  
+- Playlist object:
+  - playlistName (String) - Describing the name of the playlist
+  - coverImage (Image) - Corresponding album image
+  - likeCount (Integer) - Number of likes for the specific playlist
+  - listOfSongs (Array): Array full of Song objects, which include the title, artist, and duration
 
 ### UI and Interaction Rules
-On the home page, there should be two section: One, a Featured Pages button which, when clicked, will have the user see a random playlist on their screen, which includes its cover image, playlist name, and list of songs, and two, a All Playlist button which opens up a tile view of all playlists and their respective cover image, playlist name, author, and like count. For the latter view, if you click a playlist, it opens up a modal view (not taking up the whole screen) with the song's cover image, playlist name, author, and list of songs. In this modal view, the user can click a shuffle button which should shuffle all the songs on the playlist. Outside the modal view (in the all playlists view), the user can like/unlike each playlist, which increases/decreases the associated like count of the song. To open the modal view, open up the playlist tile you want to visit and, to exit, press the region outside of the modal view
+On the home page, there should be two section: One, a Featured Pages button which, when clicked, will have the user see a random playlist on their screen, which includes its cover image, playlist name, and list of songs, and two, a All Playlist button which opens up a tile view of all playlists and their respective cover image, playlist name, author, and like count. For the latter view, if you click a playlist, it opens up a modal view (not taking up the whole screen) with the song's cover image, playlist name, author, and list of songs. In this modal view, the user can click a shuffle button which should shuffle all the songs on the playlist. Outside the modal view (in the all playlists view), the user can like/unlike each playlist, which increases/decreases the associated like count of the song. To open the modal view, open up the playlist tile you want to visit and, to exit, press the region outside of the modal view.
 
 ### Function Specs
 [Add function specs here as you plan each milestone]
