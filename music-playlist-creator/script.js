@@ -16,10 +16,8 @@ fetch('data/data.json')
 
 /**
  * cardCreation - Creates and displays playlist cards on the page
- *
  * HIGH LEVEL EXPLANATION:
  * This function takes an array of playlist objects and creates a visual card for each one.
- * Think of it like a factory assembly line:
  * 1. Clear the workspace (empty the container)
  * 2. For each playlist, build a card piece by piece:
  *    - Create the card frame (div)
@@ -84,22 +82,41 @@ function cardCreation(playlists) {
     });
 }
 
-// Function to open modal with playlist data
+/**
+ * openModal - Opens a modal popup with detailed playlist information
+ * HIGH LEVEL EXPLANATION:
+ * This function displays a popup window showing a playlist's details and all its songs.
+ * 1. Update the modal header:
+ *    - Set the playlist cover image
+ *    - Set the playlist name
+ *    - Set the creator name
+ *    - Set the like count
+ * 2. Clear out old songs (from previous modal views)
+ * 3. For each song in the playlist, build a song row:
+ *    - Create song thumbnail image
+ *    - Add song title, artist, and album
+ *    - Add song duration
+ * 4. Make the modal visible on screen
+ *
+ * @param {Object} playlist - A single playlist object containing coverImage, playlistName, author, and listOfSongs
+ */
 function openModal(playlist) {
     // Update modal header
     const modalImage = modalContent.querySelector('.modal-image');
     const modalTitle = modalContent.querySelector('.modal-playlist-title');
     const modalCreator = modalContent.querySelector('.modal-creator-name');
+    const modalLikeCount = modalContent.querySelector('.modal-like-count');
 
     modalImage.style.backgroundImage = `url('${playlist.coverImage}')`;
     modalImage.style.backgroundSize = 'cover';
     modalImage.style.backgroundPosition = 'center';
     modalTitle.textContent = playlist.playlistName;
     modalCreator.textContent = playlist.author;
+    modalLikeCount.textContent = playlist.likeCount;
 
     // Update song list
     const songList = modalContent.querySelector('.song-list');
-    songList.innerHTML = '';
+    songList.textContent = '';
 
     playlist.listOfSongs.forEach(song => {
         const songItem = document.createElement('div');

@@ -210,12 +210,29 @@ footer p {
 }
 
 .modal-creator-name {
-    margin: 0;
+    margin: 0 0 8px 0;
     font-size: 16px;
     color: #666;
 }
 
-/* Song list container - showing each song in a down grid view including key features like 
+/* Modal likes section */
+.modal-likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.modal-heart {
+    color: #666;
+    font-size: 16px;
+}
+
+.modal-like-count {
+    color: #666;
+}
+
+/* Song list container - showing each song in a down grid view including key features like
 song title, author, and album name */
 .song-list {
     display: flex;
