@@ -73,6 +73,12 @@ function cardCreation(playlists) {
         card.appendChild(creator);
         card.appendChild(likes);
 
+        // Add click event to heart for liking/unliking
+        heart.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleLike(playlist, heart, likeCount);
+        });
+
         // Add click event to open modal with this playlist's data
         card.addEventListener('click', () => {
             openModal(playlist);
@@ -80,6 +86,39 @@ function cardCreation(playlists) {
 
         playlistCardsContainer.appendChild(card);
     });
+}
+
+/**
+ * toggleLike - Increases or decreases the like count for a playlist
+ * HIGH LEVEL EXPLANATION:
+ * This function handles when a user clicks the heart icon on a playlist.
+ * 1. Check if the heart is already liked (has 'liked' class)
+ * 2. If liked:
+ *    - Remove 'liked' class (make heart transparent again)
+ *    - Decrease like count by 1
+ * 3. If not liked:
+ *    - Add 'liked' class (fill heart with red)
+ *    - Increase like count by 1
+ * 4. Update the displayed like count on screen
+ *
+ * @param {Object} playlist - The playlist object being liked/unliked
+ * @param {HTMLElement} heartElement - The heart icon element
+ * @param {HTMLElement} likeCountElement - The element displaying the like count
+ */
+function toggleLike(playlist, heartElement, likeCountElement) {
+    // Check if already liked
+    if (heartElement.classList.contains('liked')) {
+        // Unlike: remove class and decrease count
+        heartElement.classList.remove('liked');
+        playlist.likeCount--;
+    } else {
+        // Like: add class and increase count
+        heartElement.classList.add('liked');
+        playlist.likeCount++;
+    }
+
+    // Update the displayed like count
+    likeCountElement.textContent = playlist.likeCount;
 }
 
 /**
@@ -105,6 +144,7 @@ function openModal(playlist) {
     const modalImage = modalContent.querySelector('.modal-image');
     const modalTitle = modalContent.querySelector('.modal-playlist-title');
     const modalCreator = modalContent.querySelector('.modal-creator-name');
+    const modalHeart = modalContent.querySelector('.modal-heart');
     const modalLikeCount = modalContent.querySelector('.modal-like-count');
 
     modalImage.style.backgroundImage = `url('${playlist.coverImage}')`;
@@ -113,6 +153,40 @@ function openModal(playlist) {
     modalTitle.textContent = playlist.playlistName;
     modalCreator.textContent = playlist.author;
     modalLikeCount.textContent = playlist.likeCount;
+
+    // Sync modal heart with card heart state
+    const playlistIndex = playlistsData.indexOf(playlist);
+    const cardHeart = document.querySelector(`[data-playlist-index="${playlistIndex}"] .heart`);
+    if (cardHeart && cardHeart.classList.contains('liked')) {
+        modalHeart.classList.add('liked');
+    } else {
+        modalHeart.classList.remove('liked');
+    }
+
+    // Remove old event listener by cloning the node
+    const newModalHeart = modalHeart.cloneNode(true);
+    modalHeart.parentNode.replaceChild(newModalHeart, modalHeart);
+
+    // Add new click event to modal heart for liking/unliking
+    newModalHeart.addEventListener('click', (event) => {
+        event.stopPropagation();
+        toggleLike(playlist, newModalHeart, modalLikeCount);
+        // Also update the card heart to keep them in sync
+        const updatedCardHeart = document.querySelector(`[data-playlist-index="${playlistIndex}"] .heart`);
+        const cardLikeCount = document.querySelector(`[data-playlist-index="${playlistIndex}"] .like-count`);
+
+        if (updatedCardHeart) {
+            if (newModalHeart.classList.contains('liked')) {
+                updatedCardHeart.classList.add('liked');
+            } else {
+                updatedCardHeart.classList.remove('liked');
+            }
+        }
+
+        if (cardLikeCount) {
+            cardLikeCount.textContent = playlist.likeCount;
+        }
+    });
 
     // Update song list
     const songList = modalContent.querySelector('.song-list');
