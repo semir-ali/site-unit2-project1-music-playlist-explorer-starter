@@ -4,6 +4,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Ensure header is biggest, most noticable part of the screen and centered  */
@@ -15,14 +18,183 @@ header {
 }
 
 header h1 {
-    margin: 0;
+    margin: 0 0 15px 0;
     font-size: 24px;
     color: #333;
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.nav-button {
+    background-color: #b0b0b0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-button:hover {
+    transform: scale(1.05);
+}
+
+.nav-button.active {
+    background-color: #333;
 }
 
 /* Main content area */
 main {
     padding: 40px 20px;
+    flex: 1;
+}
+
+/* Featured section */
+.featured-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.featured-container {
+    display: flex;
+    gap: 40px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured left side - playlist info */
+.featured-left {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.featured-image {
+    width: 250px;
+    height: 250px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.featured-title {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.featured-likes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.featured-likes .heart {
+    color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    -webkit-text-stroke: 1px #666;
+    transition: color 0.3s, -webkit-text-stroke 0.3s, transform 0.3s;
+}
+
+.featured-likes .heart:hover {
+    -webkit-text-stroke: 1px #ff0000;
+    transform: scale(1.2);
+}
+
+.featured-likes .heart.liked {
+    color: #ff0000;
+    -webkit-text-stroke: 1px #ff0000;
+}
+
+/* Featured right side - song list */
+.featured-right {
+    flex: 1;
+}
+
+.featured-right h3 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.featured-song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.featured-song-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featured-song-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.featured-song-image {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+}
+
+.featured-song-details {
+    flex: 1;
+}
+
+.featured-song-title {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+.featured-song-artist {
+    margin: 0 0 2px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.featured-song-album {
+    margin: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.featured-song-duration {
+    font-size: 12px;
+    color: #666;
 }
 
 /* Organize each card in Flexbox grid setup */
@@ -256,6 +428,30 @@ footer p {
 
 .modal-like-count {
     color: #666;
+}
+
+/* Shuffle button */
+.shuffle-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0 10px auto;
+    display: block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.shuffle-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.shuffle-button:active {
+    transform: scale(0.98);
 }
 
 /* Song list container - showing each song in a down grid view including key features like

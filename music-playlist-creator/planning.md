@@ -29,16 +29,58 @@ What fields from the playlist object does it use?
 The fields the playlist object uses are playlist.coverImage, playlist.playlistName, playlist.author, and playlist.likeCount.
 
 openModal function spec:
+
 What does this function take in?
 This function takes in a playlist object.
 
 Which DOM elements does it update?
-This updates the songList (represented by the class .songList) such that all of the songs and their metadata are displayed. Additionally, modalImage, modalTitle, modalCreator, modalOverlay are all modified
+This updates the songList (represented by the class .songList) such that all of the songs and their metadata are displayed. Additionally, modalImage, modalTitle, modalCreator, modalOverlay are all modified.
 
 What should the modal look like when the function has finished running?
 The modal should look like a white pop-up with a semi-transparent grey background to highlight the modal overlay. On the modal, there should be a title and the associated author along with a list of songs with their respective metadata associated with the album. 
 What information needs to be present?
 The album cover image, title, and author along with the list of songs and, for each song, the song's cover image, singer, album, and duration.
+
+toggleLike function spec:
+What happens when a previously unliked playlist is liked? What changes in the data model? What changes in the DOM?
+When an unliked playlist is like, the likeCount associated with the playlist increases by one and this specifically happens inside of the playlistsData array (this is a data model change). For the DOM changes, the heart adds a "liked" class, which makes the heart highlighted. The like-count span's text content also is updated to show the new increased like count.
+
+What happens when a previously liked playlist is unliked? What changes in the data model? What changes in the DOM?
+The playlist.likeCount in this case decreases by 1 and this removes a specifically happens inside of the playlistsData array (this is a data model change). For the DOM changes, the heart removes the "like" class so the heart is no longer highlighted. The like-count span's text content also is updated to show the new decreased like count.
+
+What constraint ensures a user can only like a playlist once at a time?
+The constraint is checking if the "like" class is added to the playlist or not. If a class has the "like" CSS class, that means that it has been liked by the user visually already and therefore cannot like a post twice.
+
+shufflePlaylist function spec:
+What does this function take in?
+This function should take a playlist
+
+What does it return?
+This returns nothing
+
+Should the original song order be preserved anywhere, and if so, how?
+The original song order should preserved via HTML when a user opens up the album. Therefore, whenever the page reloads, the album order will always be the same. 
+
+What does the UI look like after shuffling?
+The modal song list will display the songs in a new random order, with all the same songs still present but slightly reordered and the playlist name/creator/cover/likes staying unchanged. 
+
+What should happen when the user clicks shuffle multiple times?
+There should be a new random arrangement, but the random arrangement can still theoretically be the same as the current arrangement. Therefore, the user clicking shuffle will repeatedly change the order of the songs.
+### Featured Page
+1. The layout of the page — what sections exist, what goes where.
+For the layout for my "Featured" Page, I want there to be a left aligned box with the playlist name, cover image, and like count. To the right of this, I want the individual songs with their title, author, album, and duration. I still want to have the header and footer to this page however to keep the UI consistent between this and "All Playlists."
+
+2. A function spec for your random playlist selection function: what does it take in, what does it return, and when does it run?
+randomizePlaylistSection function spec:
+What does it take it?
+It takes in an array of playlist objects.
+
+What does it return?
+A random playlist from this array of playlist objects.
+
+3. How navigation between the Featured page and the All Playlists page will work.
+There should be two buttons on the UI, one that says "Featured Page" and one that says "All Playlists." Only one button can be "active" at a time (meaning its color changes from being a lighter blue to a darker black to indicate that it is currently active).
+
 ### AI Feature Spec (Milestone 8)
 [Leave blank — fill in before Milestone 8]
 
@@ -54,3 +96,12 @@ For this milestone, the main decision was deciding what information made the mos
 
 Milestone 4: 
 For this milestone, I needed to again focus on how I should structure my modal view and how I could include information. Claude suggested that I should potentially include information like "Playlist Genre," but I found this information was slightly confusing and also unnecessary. Similar to Milestone 3, I tried to ensure all the information on the modal was as necessary as possible, including information like the playlist name, title, creator, like count, and cover image. This way, the user is able to get all the information they need to see when opening up the modal view. Especially with information such as the liking feature accessible in the modal view, the user will be able to better judge the songs on the playlist and how they fit into the playlist itself. 
+
+Milestone 5:
+For this milestone, I needed to decide how I wanted the like feature look like visually on the website. I decided to make the like button a transparent heart which the user can click on both for the grid view and also for the modal view. By doing this, I am able to show visually that a playlist is liked or not. To add to this, I needed to find a way to internally prevent the user from liking a post twice and I ultimately decided to add the safeguard that through adding a "liked" class which both highlights the heart for the song the user is playing and prevents the user from increasing the likes more than that.
+
+Milestone 6:
+For this milestone, I needed to consider how I wanted to actually shuffle the songs. I realized the easiest way for me to do this is to first logically change the order of the songs using a sorting algorithm, and from there going through the array of playlists to display them on the frontend in the website. Therefore, all the songs will be randomized on the website both logically and graphically. I also needed to consider whether it made sense for there to be a set order for album's songs whenever a user opens up the website (i.e. a preserved original order). I decided this would make the most sense because, when a user creates a playlist, their order for songs is very important. Therefore, I keep an original playlist order before the user clicks shuffle on the playlist. 
+
+Milestone 7:
+For this milestone, I needed to consider what information I wanted to include on the "Featured" Page. I knew for sure that I needed the playlist's image, name, and its songs with their titles, author, album, and duration. However, there were minor information (i.e. footers, like count) that I was not sure if I wanted to include. Ultimately, from a design perspective, I decided to keep like count information on the "Featured" Page for the respective album because I know if a user is visiting the "Featured" Page, they most likely may want to like a song on the page after visiting it. This does, however, introduce the limitation that liking a playlist on the Featured Page will not represent that on the "All Playlist" page. Since I am unable to use React to keep information consistent, this means the like count will be inconsistent between the two pages. However, since this functionality does not exist for reloading the "All Playlist" page, this should be fine functionality. Additionally, to keep branding consistent between the two pages, I decided to keep the footer for the "Featured" page.

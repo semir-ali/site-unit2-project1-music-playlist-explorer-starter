@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Music Playlist Explorer</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1>Music Playlist Explorer</h1>
+        <!-- Navigation buttons -->
+        <div class="nav-buttons">
+            <a href="featured.html" class="nav-button">Featured Page</a>
+            <a href="allPlaylists.html" class="nav-button active">All Playlists</a>
+        </div>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <!-- All playlists section -->
+        <section class="all-playlists">
+            <!-- Container for all playlist cards (populated by JavaScript) -->
+            <div class="playlist-cards"></div>
+        </section>
+    </main>
+
+    <!-- Modal overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <!-- Modal content -->
+        <div class="modal-content" id="modal-content">
+            <div class="modal-header">
+                <div class="modal-image"></div>
+                <div class="modal-info">
+                    <h2 class="modal-playlist-title">Playlist Title</h2>
+                    <p class="modal-creator-name">Creator Name</p>
+                    <div class="modal-likes">
+                        <span class="modal-heart">♥</span>
+                        <span class="modal-like-count">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shuffle button -->
+            <button class="shuffle-button" id="shuffle-button">🔀 Shuffle</button>
+
+            <!-- Song list -->
+            <div class="song-list">
+                <!-- Song 1 -->
+                <div class="song-item">
+                    <div class="song-image"></div>
+                    <div class="song-details">
+                        <h4 class="song-title">Song Title</h4>
+                        <p class="artist-name">Artist Name</p>
+                        <p class="album-name">Album Name</p>
+                    </div>
+                    <span class="song-duration">0:00</span>
+                </div>
+
+                <!-- Song 2 -->
+                <div class="song-item">
+                    <div class="song-image"></div>
+                    <div class="song-details">
+                        <h4 class="song-title">Song Title</h4>
+                        <p class="artist-name">Artist Name</p>
+                        <p class="album-name">Album Name</p>
+                    </div>
+                    <span class="song-duration">0:00</span>
+                </div>
+
+                <!-- Song 3 -->
+                <div class="song-item">
+                    <div class="song-image"></div>
+                    <div class="song-details">
+                        <h4 class="song-title">Song Title</h4>
+                        <p class="artist-name">Artist Name</p>
+                        <p class="album-name">Album Name</p>
+                    </div>
+                    <span class="song-duration">0:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2026 Music Playlist Explorer</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

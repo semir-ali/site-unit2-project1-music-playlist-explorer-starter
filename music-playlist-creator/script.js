@@ -236,8 +236,84 @@ function openModal(playlist) {
         songList.appendChild(songItem);
     });
 
+    // Set up shuffle button
+    const shuffleButton = modalContent.querySelector('.shuffle-button');
+    const newShuffleButton = shuffleButton.cloneNode(true);
+    shuffleButton.parentNode.replaceChild(newShuffleButton, shuffleButton);
+
+    newShuffleButton.addEventListener('click', () => {
+        shufflePlaylist(playlist);
+    });
+
     // Show modal
     modalOverlay.classList.add('active');
+}
+
+/**
+ * shufflePlaylist - Randomly shuffles the songs in a playlist
+ * HIGH LEVEL EXPLANATION:
+ * This function reorders the songs in a playlist randomly using the Fisher-Yates shuffle algorithm.
+ * 1. Take the playlist's listOfSongs array
+ * 2. Shuffle the array in place (randomly swap songs)
+ * 3. Re-render the song list in the modal with the new order
+ *
+ * @param {Object} playlist - The playlist object whose songs will be shuffled
+ */
+function shufflePlaylist(playlist) {
+    // Fisher-Yates shuffle algorithm
+    const songs = playlist.listOfSongs;
+    for (let i = songs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [songs[i], songs[j]] = [songs[j], songs[i]]; // Swap elements
+    }
+
+    // Re-render the song list with shuffled order
+    const songList = modalContent.querySelector('.song-list');
+    songList.textContent = '';
+
+    playlist.listOfSongs.forEach(song => {
+        const songItem = document.createElement('div');
+        songItem.className = 'song-item';
+
+        // Create song image
+        const songImage = document.createElement('div');
+        songImage.className = 'song-image';
+        songImage.style.backgroundImage = `url('${song.image}')`;
+        songImage.style.backgroundSize = 'cover';
+        songImage.style.backgroundPosition = 'center';
+
+        // Create song details container
+        const songDetails = document.createElement('div');
+        songDetails.className = 'song-details';
+
+        const songTitle = document.createElement('h4');
+        songTitle.className = 'song-title';
+        songTitle.textContent = song.title;
+
+        const artistName = document.createElement('p');
+        artistName.className = 'artist-name';
+        artistName.textContent = song.artist;
+
+        const albumName = document.createElement('p');
+        albumName.className = 'album-name';
+        albumName.textContent = song.album;
+
+        songDetails.appendChild(songTitle);
+        songDetails.appendChild(artistName);
+        songDetails.appendChild(albumName);
+
+        // Create duration
+        const duration = document.createElement('span');
+        duration.className = 'song-duration';
+        duration.textContent = song.duration;
+
+        // Append all to song item
+        songItem.appendChild(songImage);
+        songItem.appendChild(songDetails);
+        songItem.appendChild(duration);
+
+        songList.appendChild(songItem);
+    });
 }
 
 // Close modal when clicking on overlay (outside modal content)
