@@ -144,7 +144,7 @@ Estimated time spent: 13 hours spent in total
 
 `TODO://` Paste the **shareable link** to your animated app walkthrough below (replace `ADD_LOOM_LINK_HERE`). GitHub markdown won't render an embedded Loom player, so a plain link is what graders will use. Make sure the link is public and playable before submitting. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website. (🚫 Remove this paragraph after adding your walkthrough link.)
 
-**Walkthrough video:** [Music Playlist Explorer Walkthrough](https://www.loom.com/share/2c33cdb9c126497cbe8e7df29f93a6df)
+**Walkthrough video:** [Music Playlist Explorer Walkthrough](https://www.loom.com/share/32068ad16eed472bb835a43ed71b50b0)
 
 ### Reflection
 
