@@ -53,6 +53,24 @@ function displayFeaturedPlaylist(playlist) {
         toggleLike(playlist, featuredHeart, featuredLikeCount);
     });
 
+    // Set up AI description button
+    const descriptionButton = document.getElementById('featured-get-description-button');
+    const descriptionSection = document.getElementById('featured-ai-description-section');
+    const descriptionOutput = document.getElementById('featured-ai-description-output');
+
+    descriptionButton.addEventListener('click', async () => {
+        descriptionButton.disabled = true;
+
+        // Show the description section and display loading message
+        descriptionSection.style.display = 'block';
+        descriptionOutput.textContent = 'Generating description…';
+
+        const description = await getPlaylistDescription(playlist);
+
+        descriptionOutput.textContent = description;
+        descriptionButton.disabled = false;
+    });
+
     // Update right side - song list
     const featuredSongList = document.querySelector('.featured-song-list');
     featuredSongList.textContent = '';

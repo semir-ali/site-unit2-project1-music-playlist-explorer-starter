@@ -81,8 +81,34 @@ A random playlist from this array of playlist objects.
 3. How navigation between the Featured page and the All Playlists page will work.
 There should be two buttons on the UI, one that says "Featured Page" and one that says "All Playlists." Only one button can be "active" at a time (meaning its color changes from being a lighter blue to a darker black to indicate that it is currently active).
 
+getPlaylistDescription function spec:
+What does this function take in?
+This function takes in a playlist object
+
+What does it return?
+It returns a 2-3 sentence text summary describing the playlist's context (i.e. name, who created it), songs, and how these songs create some sort of artistic vision for the playlist.
+
+What API does it call and with what prompt structure?
+What happens on error?
+
 ### AI Feature Spec (Milestone 8)
-[Leave blank — fill in before Milestone 8]
+Role: What role should the model play?
+The model should be sort of like a summarizer. It is able to look through the playlist's information (i.e. the playlist titles and its associated songs) and generate a summarize it based on that data. This requires using Natural Language Processing since the robot model needs to read the information about the playlist and generate a summary based on that. 
+
+Task: What is the model being asked to do? (generating a description for a music playlist based on its name, author, and song list)
+The model is generating a description for the music playlist based on its name, author, and song list
+
+Inputs: What playlist data will you pass to the model?
+It needs information about the playlist name, author, and its associated song list names.
+
+Output format: What should the response look like? (e.g., 2–3 sentence description that captures the vibe and theme of the playlist)
+The response should be a 2-3 sentence description going over the playlist's basic information, including who made it, its name, its songs, and what the author was most likely going for connecting all these songs together. 
+
+Constraints: What should the model avoid? (e.g., don't list the songs individually, don't use generic marketing language)
+The model should avoid going too much into depth about an individual song, since this is meant to go over the entire playlist. Each of the songs build a puzzle piece to the whole playlist's vibe so it is important to stick with only naming songs and describing how they collectively build a picture for the album.
+
+Failure behavior: What should the UI show if the API call fails or the model doesn't respond?
+The UI should show "Unable to generate description at this time."
 
 ### Decisions Log
 Milestone 1:
@@ -105,3 +131,6 @@ For this milestone, I needed to consider how I wanted to actually shuffle the so
 
 Milestone 7:
 For this milestone, I needed to consider what information I wanted to include on the "Featured" Page. I knew for sure that I needed the playlist's image, name, and its songs with their titles, author, album, and duration. However, there were minor information (i.e. footers, like count) that I was not sure if I wanted to include. Ultimately, from a design perspective, I decided to keep like count information on the "Featured" Page for the respective album because I know if a user is visiting the "Featured" Page, they most likely may want to like a song on the page after visiting it. This does, however, introduce the limitation that liking a playlist on the Featured Page will not represent that on the "All Playlist" page. Since I am unable to use React to keep information consistent, this means the like count will be inconsistent between the two pages. However, since this functionality does not exist for reloading the "All Playlist" page, this should be fine functionality. Additionally, to keep branding consistent between the two pages, I decided to keep the footer for the "Featured" page.
+
+Milestone 8:
+For this milestone, I needed to determine what information was necessary from the AI agent to generate and what information I needed to ask the agent as well. I decided the best course of action for this would be giving the Agent context on the restraints I wanted it to have, which I decided was similar to what was expected where the AI shouldn't just be listing out songs and going over the entire playlist and giving a summary based on that. From there, I also adjusted my prompt such that the agent was giving back a 2-3 sentence description of the playlist itself so the user has a general gist about what the playlist's features include. I specifically added in the prompt "Focus on how the songs collectively create an artistic vision or mood" so the result could emphasize this idea of having a vision/mood described in the website.

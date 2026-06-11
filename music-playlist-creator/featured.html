@@ -10,19 +10,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header section -->
+    <!-- Header -->
     <header>
         <h1>Music Playlist Explorer</h1>
-        <!-- Navigation buttons -->
+        <!-- Navigation -->
         <div class="nav-buttons">
             <a href="featured.html" class="nav-button active">Featured Page</a>
             <a href="allPlaylists.html" class="nav-button">All Playlists</a>
         </div>
     </header>
 
-    <!-- Main content section -->
+    <!-- Main -->
     <main>
-        <!-- Featured playlist section -->
+        <!-- Featured playlist -->
         <section class="featured-section">
             <div class="featured-container">
                 <div class="featured-left">
@@ -34,17 +34,28 @@
                     </div>
                 </div>
                 <div class="featured-right">
-                    <h3>Songs</h3>
+                    <div class="featured-header">
+                        <h3>Songs</h3>
+                        <button class="get-description-button" id="featured-get-description-button">Get Description</button>
+                    </div>
+
+                    <!-- AI Description -->
+                    <div class="ai-description-section" id="featured-ai-description-section" style="display: none;">
+                        <p class="ai-description-output" id="featured-ai-description-output"></p>
+                    </div>
+
                     <div class="featured-song-list"></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer section -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Music Playlist Explorer</p>
     </footer>
+    <script src="secrets.js"></script>
+    <script src="playlistAI.js"></script>
     <script src="featured.js"></script>
 </body>
 </html>
